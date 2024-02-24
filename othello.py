@@ -4,13 +4,13 @@ import random
 def is_valid_move(board, row, col, color):
     if board[row][col] != 0:
         return False
-
     opposite_color = 2 if color == 1 else 1
 
     # Check if there is at least one neighbor of opposite color
     has_opposite_neighbor = False
     for dr in [-1, 0, 1]:
         for dc in [-1, 0, 1]:
+
             if dr == 0 and dc == 0:
                 continue
             r, c = row + dr, col + dc
@@ -161,7 +161,8 @@ def human_vs_random():
             col = int(input("Select a column: "))
         else:
             row, col = select_next_play_random(board, current_player)
-            print(f"Random move for {'White' if current_player == 1 else 'Black'}: {row}, {col}")
+            print(
+                f"Random move for {'White' if current_player == 1 else 'Black'}: {row}, {col}")
 
         if is_valid_move(board, row, col, current_player):
             board[row][col] = current_player
@@ -191,10 +192,12 @@ def ai_vs_random():
 
         if current_player == 1:
             row, col = select_next_play_ai(board, current_player)
-            print(f"AI move for {'Black' if current_player == 1 else 'White'}: {row}, {col}")
+            print(
+                f"AI move for {'Black' if current_player == 1 else 'White'}: {row}, {col}")
         else:
             row, col = select_next_play_random(board, current_player)
-            print(f"Random move for {'White' if current_player == 1 else 'Black'}: {row}, {col}")
+            print(
+                f"Random move for {'White' if current_player == 1 else 'Black'}: {row}, {col}")
 
         if is_valid_move(board, row, col, current_player):
             board[row][col] = current_player
@@ -223,7 +226,8 @@ def random_vs_random():
         print(get_board_as_string(board))
 
         row, col = select_next_play_random(board, current_player)
-        print(f"Random move for {'Black' if current_player == 1 else 'White'}: {row}, {col}")
+        print(
+            f"Random move for {'Black' if current_player == 1 else 'White'}: {row}, {col}")
 
         if is_valid_move(board, row, col, current_player):
             board[row][col] = current_player
@@ -236,6 +240,7 @@ def random_vs_random():
 
     return winner
 
-#human_vs_random()
+
+# human_vs_random()
 ai_vs_random()
-#random_vs_random()
+# random_vs_random()
